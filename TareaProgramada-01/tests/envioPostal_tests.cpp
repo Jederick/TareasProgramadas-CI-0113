@@ -4,138 +4,129 @@
 
 namespace{
     TEST(Test_EnvioPostal_CalculoEnvio, CeroTres_PimeraClase){
-        /// AAA
 
         // Arrange - configurar el escenario
-        EnvioPostal* envioPostal = new EnvioPostal(0, 50, 1);
+        EnvioPostal* envioPostal = new EnvioPostal(1, 50, 1);
 
         // Act - ejecute la operación
         float actual = envioPostal->calculoEnvio();
         float esperada = 15;
+        delete envioPostal;
+        // Assert - valide los resultados
+        EXPECT_FLOAT_EQ(esperada, actual);
+    }
+    TEST(Test_EnvioPostal_CalculoEnvio, CeroTres_SegundaClase){
+
+        // Arrange - configurar el escenario
+        EnvioPostal* envioPostal = new EnvioPostal(2, 500, 2);
+
+        // Act - ejecute la operación
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 14;
+        delete envioPostal;
+    
+        // Assert - valide los resultados
+        EXPECT_FLOAT_EQ(esperada, actual);
+
+    }  
+    TEST(Test_EnvioPostal_CalculoEnvio, CeroTres_TerceraClase){
+
+        // Arrange - configurar el escenario
+        EnvioPostal* envioPostal = new EnvioPostal(3, 700, 3);
+
+        // Act - ejecute la operación
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 8.4;
+        delete envioPostal;
+    
+        // Assert - valide los resultados
+        EXPECT_FLOAT_EQ(esperada, actual);
+
+    }
+    
+    TEST(Test_EnvioPostal_CalculoEnvio, CuatroOcho_PrimeraClase){
+
+        // Arrange - configurar el escenario
+        EnvioPostal* envioPostal = new EnvioPostal(4, 50, 1);
+
+        // Act - ejecute la operación
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 22.5;
+        delete envioPostal;
     
         // Assert - valide los resultados
         EXPECT_FLOAT_EQ(esperada, actual);
     }
-/**
-    TEST(Test_EnvioPostal_CalculoEnvio, CeroTres_SegundaClase){
-        /// AAA
-
-        // Arrange - configurar el escenario
-        int calculadora;
-
-        // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
-        // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
-
-    }
-    TEST(Test_EnvioPostal_CalculoEnvio, CeroTres_TerceraClase){
-        /// AAA
-
-        // Arrange - configurar el escenario
-        int calculadora;
-
-        // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
-        // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
-
-    }
-
-    TEST(Test_EnvioPostal_CalculoEnvio, CuatroOcho_PrimeraClase){
-
-        /// AAA
-
-        // Arrange - configurar el escenario
-        int calculadora;
-
-        // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
-        // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
-
-    }
     TEST(Test_EnvioPostal_CalculoEnvio, CuatroOcho_SegundaClase){
 
-        /// AAA
-
         // Arrange - configurar el escenario
-        int calculadora;
+        EnvioPostal* envioPostal = new EnvioPostal(5, 500, 2);
 
         // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 26.5;
+        delete envioPostal;
+    
         // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
+        EXPECT_FLOAT_EQ(esperada, actual);
 
     }
     TEST(Test_EnvioPostal_CalculoEnvio, CuatroOcho_TerceraClase){
 
-        /// AAA
-
         // Arrange - configurar el escenario
-        int calculadora;
+        EnvioPostal* envioPostal = new EnvioPostal(8, 700, 3);
 
         // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 8.4;
+        delete envioPostal;
+    
         // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
+        EXPECT_FLOAT_EQ(esperada, actual);
 
     }
 
     TEST(Test_EnvioPostal_CalculoEnvio, NueveoMas_primeraClase){
 
-        /// AAA
-
         // Arrange - configurar el escenario
-        int calculadora;
+        EnvioPostal* envioPostal = new EnvioPostal(9, 50, 1);
 
         // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 30;
+        delete envioPostal;
+    
         // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
+        EXPECT_FLOAT_EQ(esperada, actual);
 
     }
     TEST(Test_EnvioPostal_CalculoEnvio, NueveoMas_segundaClase){
 
-        /// AAA
-
         // Arrange - configurar el escenario
-        int calculadora;
+        EnvioPostal* envioPostal = new EnvioPostal(15, 500, 2);
 
         // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 37.5;
+        delete envioPostal;
+    
         // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
+        EXPECT_FLOAT_EQ(esperada, actual);
 
     }
     TEST(Test_EnvioPostal_CalculoEnvio, NueveoMas_terceraClase){
 
-        /// AAA
-
         // Arrange - configurar el escenario
-        int calculadora;
+        EnvioPostal* envioPostal = new EnvioPostal(20, 700, 3);
 
         // Act - ejecute la operación
-        int actual = 0;
-        int esperada = 1;
-
+        float actual = envioPostal->calculoEnvio();
+        float esperada = 8.4;
+        delete envioPostal;
+    
         // Assert - valide los resultados
-        EXPECT_EQ(esperada, actual);
+        EXPECT_FLOAT_EQ(esperada, actual);
 
     }
-    **/
+
 }
