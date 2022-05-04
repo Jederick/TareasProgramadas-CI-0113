@@ -30,5 +30,13 @@ int main(){
 
     std::cout << "El monto total de los envios es de: " << totalMontoEnvios << std::endl;
 
+    delete envioPostal1;
+    delete envioPostal2;
+    delete envioPostal3;
+
+    delete envioFedex1;
+    delete envioFedex2;
+    delete envioFedex3;
+
     return 0;
 }
