@@ -9,6 +9,7 @@ class EnvioPostal : public TipoEnvio{
     int clase;
 
     public:
+    ~EnvioPostal();
     EnvioPostal(int kilogramos, int kilometros, int clase);
     virtual float calculoEnvio();
 
