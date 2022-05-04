@@ -29,4 +29,6 @@ int main(){
     }
 
     std::cout << "El monto total de los envios es de: " << totalMontoEnvios << std::endl;
+
+    return 0;
 }

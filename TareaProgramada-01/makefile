@@ -20,7 +20,7 @@ debug:
 	mkdir -p bin
 	g++ $(FLAGS) src/envioFedex.cpp -o bin/envioFedex.o
 	g++ $(FLAGS) src/envioPostal.cpp -o bin/envioPostal.o 
-	g++ $(FLAGS) src/main.cpp -o bin/main.
+	g++ $(FLAGS) src/main.cpp -o bin/main.o
 	g++ -o bin/debug bin/envioFedex.o bin/envioPostal.o bin/main.o
 
 clean:

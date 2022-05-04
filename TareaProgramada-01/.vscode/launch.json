@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "preLaunchTask": "Compile the program",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/final",
+            "program": "${workspaceFolder}/bin/debug",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
