@@ -5,10 +5,11 @@
 class EnvioFedex : public TipoEnvio{
 
     private:
-    int costoBase = 35;
+    float costoBase = 35.00;
 
     public:
-
+    EnvioFedex(int kilometros, int kilogramos);
+    virtual float calculoEnvio();
     
 };
 #endif

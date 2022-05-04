@@ -11,8 +11,10 @@ all:
 test:
 	mkdir -p bin
 	g++ $(FLAGS) src/envioPostal.cpp -o bin/envioPostal.o
+	g++ $(FLAGS) src/envioFedex.cpp -o bin/envioFedex.o
 	g++ $(FLAGS) tests/envioPostal_tests.cpp -o bin/envioPostal_tests.o
-	g++ -g -o bin/tests bin/envioPostal_tests.o bin/envioPostal.o -lgtest -lgtest_main -lpthread 
+	g++ $(FLAGS) tests/envioFedex_tests.cpp -o bin/envioFedex_tests.o
+	g++ -g -o bin/tests bin/envioPostal_tests.o bin/envioPostal.o bin/envioFedex_tests.o bin/envioFedex.o -lgtest -lgtest_main -lpthread 
 
 
 debug:
