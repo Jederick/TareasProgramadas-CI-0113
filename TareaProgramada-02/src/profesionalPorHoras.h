@@ -12,6 +12,7 @@ class ProfesionalPorHoras : public TipoEmpleado{
     public:
     ProfesionalPorHoras(string nombreCompleto, string email, int idEmpleado, int tipoEmpleado, int idSupervisor, int horasEnMesfloat, float montoPorHora);
 
+    //~ProfesionalPorHoras();
   
 };
 #endif  

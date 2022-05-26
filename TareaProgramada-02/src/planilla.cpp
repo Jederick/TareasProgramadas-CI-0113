@@ -9,6 +9,7 @@ Planilla::~Planilla(){
     delete this->empleadoRaiz;
 }
 
+
 void Planilla::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
     TipoEmpleado *nuevoEmpleado = _nuevoEmpleado;
     TipoEmpleado *empleadoSupervisor = this->indiceEmpleados.at(nuevoEmpleado->obtenerIdSupervisor());
@@ -19,7 +20,5 @@ void Planilla::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
 }
 
 TipoEmpleado* Planilla::obtenerEmpleado(int idEmpleado){
-    TipoEmpleado *empleadoAuxiliar = this->indiceEmpleados.at(idEmpleado);
-    return empleadoAuxiliar;
-
+    return this->indiceEmpleados.at(idEmpleado);
 }

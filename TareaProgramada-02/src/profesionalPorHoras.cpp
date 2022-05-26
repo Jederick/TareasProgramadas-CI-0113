@@ -7,3 +7,9 @@ ProfesionalPorHoras::ProfesionalPorHoras(string _nombreCompleto, string _email, 
     this->tipoEmpleado = _tipoEmpleado;
     this->idSupervisor = _idSupervisor;
 }
+
+/*ProfesionalPorHoras::~ProfesionalPorHoras(){
+    for(TipoEmpleado *auxiliar: this->supervisados){
+        delete auxiliar;
+    }
+}*/

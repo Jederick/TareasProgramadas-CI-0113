@@ -10,7 +10,7 @@ class EmpleadoNomina : public TipoEmpleado{
 
     public:
     EmpleadoNomina(string nombreCompleto, string email, int idEmpleado, int tipoEmpleado, int idSupervisor, float PagoBruto);
-
+    //~EmpleadoNomina();
     
 };
 #endif  

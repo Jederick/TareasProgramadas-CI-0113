@@ -8,3 +8,9 @@ EmpleadoNomina::EmpleadoNomina(string _nombreCompleto, string _email, int _idEmp
     this->idSupervisor = _idSupervisor;
     this->pagoBruto = _pagoBruto;
 }
+
+/*EmpleadoNomina::~EmpleadoNomina(){
+    for(TipoEmpleado *auxiliar: this->supervisados){
+        delete auxiliar;
+    }
+}*/

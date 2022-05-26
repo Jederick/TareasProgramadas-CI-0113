@@ -13,17 +13,41 @@ namespace{
         TipoEmpleado *empleadoActual = planillaEmpleados->obtenerEmpleado(1);
 
         EXPECT_EQ(empleadoEsperado, empleadoActual);
+
+        //delete empleadoEjemplo;
+        //delete planillaEmpleados;
     }
 
-    /*TEST(Arbol_test, Test_Agregar_Nodo){
-        
-        Arbol *arbol = new Arbol(2, 1);
+    TEST(Planilla_Tests, Test_Obtener_Empleado_De_Planilla){
 
-        arbol->insertarValor(5,2,1);
-        
-        int esperado = 5;
-        int actual = arbol->obtenerValor(2);
+        EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina("Tyler Denis", "denis_tyler@biz.com", 1, 1, 1, 10);
+        Planilla *planillaEmpleados = new Planilla(empleadoEjemplo); 
 
-        EXPECT_EQ(esperado, actual);
-    }*/
+        TipoEmpleado *empleadoEsperado = empleadoEjemplo;
+        TipoEmpleado *empleadoActual = planillaEmpleados->obtenerEmpleado(1);
+
+        EXPECT_EQ(empleadoEsperado, empleadoActual);
+
+        //delete empleadoEjemplo;
+        //delete planillaEmpleados;
+    }
+
+    TEST(Planilla_Tests, Test_Agregar_Empleado_A_Planilla){
+
+        EmpleadoNomina *empleadoSupervisor = new EmpleadoNomina("Tyler Denis", "denis_tyler@biz.com", 1, 1, 1, 10);
+        EmpleadoNomina *empleadoSupervisado = new EmpleadoNomina("Clarissa Parker", "clarissa_parker@biz.com", 2, 1, 1, 1005);
+    
+        Planilla *planillaEmpleados = new Planilla(empleadoSupervisor); 
+
+        planillaEmpleados->agregarEmpleado(empleadoSupervisado);
+        TipoEmpleado *empleadoEsperado = empleadoSupervisado;
+        TipoEmpleado *empleadoActual = planillaEmpleados->obtenerEmpleado(2);
+
+        EXPECT_EQ(empleadoEsperado, empleadoActual);
+
+        //delete empleadoSupervisado;
+        //delete empleadoSupervisor;
+        //delete planillaEmpleados;
+    }
+    
 }
