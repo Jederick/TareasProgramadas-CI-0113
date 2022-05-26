@@ -1,15 +1,15 @@
-#include "arbol.h"
+#include "planilla.h"
 
-Arbol::Arbol(TipoEmpleado *nuevoEmpleadoRaiz){
+Planilla::Planilla(TipoEmpleado *nuevoEmpleadoRaiz){
     this->empleadoRaiz = nuevoEmpleadoRaiz;
     this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(this->empleadoRaiz->obtenerIdEmpleado(), this->empleadoRaiz) );
 }
 
-Arbol::~Arbol(){
+Planilla::~Planilla(){
     delete this->empleadoRaiz;
 }
 
-void Arbol::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
+void Planilla::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
     TipoEmpleado *nuevoEmpleado = _nuevoEmpleado;
     TipoEmpleado *empleadoSupervisor = this->indiceEmpleados.at(nuevoEmpleado->obtenerIdSupervisor());
 
@@ -18,7 +18,7 @@ void Arbol::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
     this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(nuevoEmpleado->obtenerIdEmpleado(), nuevoEmpleado) );
 }
 
-TipoEmpleado* Arbol::obtenerEmpleado(int idEmpleado){
+TipoEmpleado* Planilla::obtenerEmpleado(int idEmpleado){
     TipoEmpleado *empleadoAuxiliar = this->indiceEmpleados.at(idEmpleado);
     return empleadoAuxiliar;
 

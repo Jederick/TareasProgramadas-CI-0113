@@ -19,7 +19,6 @@ class TipoEmpleado{
 
     public:
     //virtual int calculoPago();
-    //virtual TipoEmpleado* crearEmpleado(TipoEmpleado* nuevoEmpleado);
 
     int obtenerIdEmpleado();
     int obtenerTipoEmpleado();
@@ -29,7 +28,7 @@ class TipoEmpleado{
     string obtenerEmail();
 
     vector<TipoEmpleado *> obtenerSupervisados();
-    //void insertarSupervisado(TipoEmpleado *nuevoSupervisado);    
+    void insertarSupervisado(TipoEmpleado *nuevoSupervisado);    
 
 };
 

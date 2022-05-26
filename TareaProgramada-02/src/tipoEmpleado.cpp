@@ -20,9 +20,9 @@ string TipoEmpleado::obtenerEmail(){
     return this->email;
 }
 
-/*void TipoEmpleado::insertarSupervisado(TipoEmpleado *nuevoSupervisado){
+void TipoEmpleado::insertarSupervisado(TipoEmpleado *nuevoSupervisado){
     this->supervisados.push_back(nuevoSupervisado);
-}*/
+}
 
 vector<TipoEmpleado *> TipoEmpleado::obtenerSupervisados(){
     return this->supervisados;
