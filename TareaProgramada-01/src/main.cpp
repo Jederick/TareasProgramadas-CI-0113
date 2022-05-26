@@ -9,7 +9,7 @@ int main(){
     float totalMontoEnvios = 0;
 
     EnvioPostal* envioPostal1 = new EnvioPostal(8, 50, 1); //22.5
-    EnvioPostal* envioPostal2 = new EnvioPostal(4, 500, 2); // 26.5
+    EnvioPostal* envioPostal2 = new EnvioPostal(4, 500, 2); // 26.53
     EnvioPostal* envioPostal3 = new EnvioPostal(15, 500, 2); //37.5
 
     EnvioFedex* envioFedex1 = new EnvioFedex(200, 15); //45.00
