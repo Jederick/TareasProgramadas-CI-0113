@@ -1,8 +1,11 @@
 #ifndef PLANILLA_H
 #define PLANILLA_H
 
-#include "tipoEmpleado.h"
 #include <map>
+#include <istream>
+
+#include "tipoEmpleado.h"
+
 
 using namespace std;
 
@@ -12,9 +15,13 @@ class Planilla{
         map<int, TipoEmpleado*> indiceEmpleados;
         TipoEmpleado *empleadoRaiz;
         
+        istream *archivoPersonas;
+        istream *archivoNomina;
+        istream *archivoHorasTrabajadas;
+
     public:
         Planilla(TipoEmpleado *empleadoRaiz);
-        Planilla();
+        Planilla(istream *archivoPersonas, istream *archivoNomina, istream *archivoHorasTrabajadas);
 
         ~Planilla();
 

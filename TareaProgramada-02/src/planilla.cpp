@@ -5,7 +5,10 @@ Planilla::Planilla(TipoEmpleado *nuevoEmpleadoRaiz){
     this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(this->empleadoRaiz->obtenerIdEmpleado(), this->empleadoRaiz) );
 }
 
-Planilla::Planilla(){
+Planilla::Planilla(istream *_archivoPersonas, istream *_archivoNomina, istream *_archivoHorasTrabajadas){
+    this->archivoPersonas = _archivoPersonas;
+    this->archivoNomina = _archivoNomina;
+    this->archivoHorasTrabajadas = _archivoHorasTrabajadas;
 }
 
 Planilla::~Planilla(){

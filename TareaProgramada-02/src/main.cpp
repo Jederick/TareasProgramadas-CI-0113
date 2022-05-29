@@ -26,9 +26,7 @@ int main(){
         cerr << "No se pudo abrir el archivo nomina.txt" << endl;
     }
 
-    ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10, 10.5);
-    Planilla *planilla  = new Planilla();
-    planilla->agregarEmpleado(empleadoEjemplo);
+    Planilla *planilla  = new Planilla(&archivoPersonas, &archivoNomina, &archivoHorasTrabajadas);
     
     archivoPersonas.close();
     archivoHorasTrabajadas.close();
