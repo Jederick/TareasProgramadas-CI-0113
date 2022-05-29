@@ -2,10 +2,12 @@ FLAGS = -g -c --std=c++17
 
 all:
 	mkdir -p bin
-	g++ $(FLAGS) src/arbol.cpp -o bin/arbol.o
-	g++ $(FLAGS) src/nodoArbol.cpp -o bin/nodoArbol.o
+	g++ $(FLAGS) src/planilla.cpp -o bin/planilla.o
+	g++ $(FLAGS) src/empleadoNomina.cpp -o bin/empleadoNomina.o
+	g++ $(FLAGS) src/profesionalPorHoras.cpp -o bin/profesionalPorHoras.o
+	g++ $(FLAGS) src/tipoEmpleado.cpp -o bin/tipoEmpleado.o
 	g++ $(FLAGS) src/main.cpp -o bin/main.o
-	g++ -o bin/final bin/main.o bin/nodoArbol.o bin/arbol.o
+	g++ -o bin/final bin/main.o bin/empleadoNomina.o bin/planilla.o bin/profesionalPorHoras.o bin/tipoEmpleado.o
 
 
 make test:

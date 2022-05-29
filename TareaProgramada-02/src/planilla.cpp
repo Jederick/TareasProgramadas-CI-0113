@@ -5,18 +5,23 @@ Planilla::Planilla(TipoEmpleado *nuevoEmpleadoRaiz){
     this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(this->empleadoRaiz->obtenerIdEmpleado(), this->empleadoRaiz) );
 }
 
+Planilla::Planilla(){
+}
+
 Planilla::~Planilla(){
     delete this->empleadoRaiz;
 }
 
 
 void Planilla::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
-    TipoEmpleado *nuevoEmpleado = _nuevoEmpleado;
-    TipoEmpleado *empleadoSupervisor = this->indiceEmpleados.at(nuevoEmpleado->obtenerIdSupervisor());
+    if(this->empleadoRaiz == nullptr){
+        this->empleadoRaiz = _nuevoEmpleado;
+    }else{
 
-    empleadoSupervisor->insertarSupervisado(nuevoEmpleado);
-
-    this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(nuevoEmpleado->obtenerIdEmpleado(), nuevoEmpleado) );
+        TipoEmpleado *empleadoSupervisor = this->indiceEmpleados.at(_nuevoEmpleado->obtenerIdSupervisor());
+        empleadoSupervisor->insertarSupervisado(_nuevoEmpleado);
+    }
+    this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(_nuevoEmpleado->obtenerIdEmpleado(), _nuevoEmpleado) );
 }
 
 TipoEmpleado* Planilla::obtenerEmpleado(int idEmpleado){

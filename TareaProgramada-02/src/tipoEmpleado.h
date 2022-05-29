@@ -1,6 +1,7 @@
 #ifndef TIPO_EMPLEADO_H
 #define TIPO_EMPLEADO_H
 #include <string>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -11,7 +12,8 @@ class TipoEmpleado{
     int idEmpleado;
     int tipoEmpleado;
     int idSupervisor;
-    string nombreCompleto;
+    string nombre;
+    string apellido;
     string email;
 
     vector<TipoEmpleado*> supervisados;
@@ -28,7 +30,7 @@ class TipoEmpleado{
     string obtenerEmail();
 
     vector<TipoEmpleado *> obtenerSupervisados();
-    void insertarSupervisado(TipoEmpleado *nuevoSupervisado);    
+    void insertarSupervisado(TipoEmpleado *nuevoSupervisado);
 
 };
 

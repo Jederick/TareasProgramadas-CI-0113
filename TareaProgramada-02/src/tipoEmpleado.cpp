@@ -13,7 +13,7 @@ int TipoEmpleado::obtenerIdSupervisor(){
 }
 
 string TipoEmpleado::obtenerNombreCompleto(){
-    return this->nombreCompleto;
+    return this->nombre + " " + apellido;
 }
 
 string TipoEmpleado::obtenerEmail(){
@@ -27,4 +27,6 @@ void TipoEmpleado::insertarSupervisado(TipoEmpleado *nuevoSupervisado){
 vector<TipoEmpleado *> TipoEmpleado::obtenerSupervisados(){
     return this->supervisados;
 }
+
+
 
