@@ -4,10 +4,6 @@ int TipoEmpleado::obtenerIdEmpleado(){
     return this->idEmpleado;
 }
 
-int TipoEmpleado::obtenerTipoEmpleado(){
-    return this->tipoEmpleado;
-}
-
 int TipoEmpleado::obtenerIdSupervisor(){
     return this->idSupervisor;
 }
@@ -18,10 +14,6 @@ string TipoEmpleado::obtenerNombreCompleto(){
 
 string TipoEmpleado::obtenerNombreSupervisor(){
     return this->nombreSupervisor;
-}
-
-string TipoEmpleado::obtenerEmail(){
-    return this->email;
 }
 
 void TipoEmpleado::insertarSupervisado(TipoEmpleado *nuevoSupervisado){

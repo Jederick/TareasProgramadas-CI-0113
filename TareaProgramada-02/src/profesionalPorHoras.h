@@ -10,8 +10,7 @@ class ProfesionalPorHoras : public TipoEmpleado{
     int horasEnMes;
 
     public:
-    ProfesionalPorHoras(string nombre, string apellido, string email, int idEmpleado, int tipoEmpleado, int idSupervisor, int horasEnMesfloat, float montoPorHora);
-
+    ProfesionalPorHoras();
     //~ProfesionalPorHoras();
 
     friend istream& operator >> (istream &entrada, ProfesionalPorHoras *empleado);

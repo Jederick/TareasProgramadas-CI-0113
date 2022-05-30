@@ -18,9 +18,7 @@ class Planilla{
 
 
     public:
-        Planilla(TipoEmpleado *empleadoRaiz);
         Planilla();
-
         ~Planilla();
 
         void agregarEmpleado(TipoEmpleado *nuevoEmpleado);

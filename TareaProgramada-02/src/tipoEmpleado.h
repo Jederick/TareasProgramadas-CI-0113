@@ -24,12 +24,10 @@ class TipoEmpleado{
     //virtual int calculoPago();
 
     int obtenerIdEmpleado();
-    int obtenerTipoEmpleado();
     int obtenerIdSupervisor();
 
     string obtenerNombreCompleto();
     string obtenerNombreSupervisor();
-    string obtenerEmail();
 
     void asignarNombreSupervisor(string nombreSupervisor);
     void insertarSupervisado(TipoEmpleado *nuevoSupervisado);

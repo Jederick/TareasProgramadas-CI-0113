@@ -1,10 +1,5 @@
 #include "planilla.h"
 
-Planilla::Planilla(TipoEmpleado *nuevoEmpleadoRaiz){
-    this->empleadoRaiz = nuevoEmpleadoRaiz;
-    this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(this->empleadoRaiz->obtenerIdEmpleado(), this->empleadoRaiz) );
-}
-
 Planilla::Planilla(){
 }
 

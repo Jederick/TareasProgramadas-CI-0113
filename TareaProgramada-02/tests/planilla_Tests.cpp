@@ -4,50 +4,33 @@
 
 namespace{
 
-   TEST(Planilla_Tests, Test_Inicializar_Planilla){
 
-        EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10);
-        Planilla *planillaEmpleados = new Planilla(empleadoEjemplo); 
+    TEST(Planilla_Tests, Test_Agregar_Obtener_Empleado_A_Planilla){
 
+        // Arrange - configurar el escenario
+        ostringstream streamSalidaEmpleado;
+        streamSalidaEmpleado << "24 Deborah Nurton deborah_nurton@biz.com 1 6";
+        string empleado = streamSalidaEmpleado.str();
+
+        istringstream streamEntradaEmpleado(empleado);
+        
+        EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina();
+        streamEntradaEmpleado >> empleadoEjemplo;
+
+        Planilla *planilla = new Planilla();
+
+        // Act - ejecute la operación
+        planilla->agregarEmpleado(empleadoEjemplo);
         TipoEmpleado *empleadoEsperado = empleadoEjemplo;
-        TipoEmpleado *empleadoActual = planillaEmpleados->obtenerEmpleado(1);
+        TipoEmpleado *empleadoActual = planilla->obtenerEmpleado(24);
 
+        // Assert - valide los resultados
         EXPECT_EQ(empleadoEsperado, empleadoActual);
 
         //delete empleadoEjemplo;
         //delete planillaEmpleados;
     }
 
-    TEST(Planilla_Tests, Test_Obtener_Empleado_De_Planilla){
-
-        EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10);
-        Planilla *planillaEmpleados = new Planilla(empleadoEjemplo); 
-
-        TipoEmpleado *empleadoEsperado = empleadoEjemplo;
-        TipoEmpleado *empleadoActual = planillaEmpleados->obtenerEmpleado(1);
-
-        EXPECT_EQ(empleadoEsperado, empleadoActual);
-
-        //delete empleadoEjemplo;
-        //delete planillaEmpleados;
-    }
-
-    TEST(Planilla_Tests, Test_Agregar_Empleado_A_Planilla){
-
-        EmpleadoNomina *empleadoSupervisor = new EmpleadoNomina("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10);
-        EmpleadoNomina *empleadoSupervisado = new EmpleadoNomina("Clarissa", "Parker", "clarissa_parker@biz.com", 2, 1, 1, 1005);
     
-        Planilla *planillaEmpleados = new Planilla(empleadoSupervisor); 
-
-        planillaEmpleados->agregarEmpleado(empleadoSupervisado);
-        TipoEmpleado *empleadoEsperado = empleadoSupervisado;
-        TipoEmpleado *empleadoActual = planillaEmpleados->obtenerEmpleado(2);
-
-        EXPECT_EQ(empleadoEsperado, empleadoActual);
-
-        //delete empleadoSupervisado;
-        //delete empleadoSupervisor;
-        //delete planillaEmpleados;
-    }
     
 }

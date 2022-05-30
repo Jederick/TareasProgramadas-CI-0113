@@ -9,7 +9,6 @@ class EmpleadoNomina : public TipoEmpleado{
         float pagoBruto;
 
     public:
-        EmpleadoNomina(string nombre, string apellido, string email, int idEmpleado, int tipoEmpleado, int idSupervisor, float PagoBruto);
         EmpleadoNomina();
         //~EmpleadoNomina();
 

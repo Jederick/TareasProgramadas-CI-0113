@@ -1,12 +1,6 @@
 #include "profesionalPorHoras.h"
 
-ProfesionalPorHoras::ProfesionalPorHoras(string _nombre, string _apellido, string _email, int _idEmpleado, int _tipoEmpleado, int _idSupervisor, int _horasEnMes, float montoPorHora){
-    this->nombre = _nombre;
-    this->apellido = _apellido;
-    this->email = _email;
-    this->idEmpleado = _idEmpleado;
-    this->tipoEmpleado = _tipoEmpleado;
-    this->idSupervisor = _idSupervisor;
+ProfesionalPorHoras::ProfesionalPorHoras(){
 }
 
 /*ProfesionalPorHoras::~ProfesionalPorHoras(){
@@ -16,6 +10,6 @@ ProfesionalPorHoras::ProfesionalPorHoras(string _nombre, string _apellido, strin
 }*/
 
 istream& operator >> (istream &entrada, ProfesionalPorHoras *empleado){
-     entrada >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor;
+    entrada >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor >> empleado->idEmpleado >> empleado->montoPorHora >> empleado->horasEnMes;
     return entrada;
 }

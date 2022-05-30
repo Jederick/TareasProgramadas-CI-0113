@@ -5,62 +5,68 @@
 
 namespace{
 
-   TEST(TipoEmpleado_Tests, Test_Obtener_ID_Empleados){
+   TEST(TipoEmpleado_Tests, Test_Obtener_ID_Empleado){
         
-        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10, 10.5);
+        ostringstream streamSalidaEmpleado;
+        streamSalidaEmpleado << "24 Deborah Nurton deborah_nurton@biz.com 1 6";
+        string empleado = streamSalidaEmpleado.str();
+
+        istringstream streamEntradaEmpleado(empleado);
         
-        int idEmpleadoEsperada = 1;
+        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras();
+        streamEntradaEmpleado >> empleadoEjemplo;
+        
+        int idEsperada = 24;
         int idActual = empleadoEjemplo->obtenerIdEmpleado();
 
-        EXPECT_EQ(idEmpleadoEsperada, idActual);
-        delete empleadoEjemplo;
-    }
-
-    TEST(TipoEmpleado_Tests, Test_Obtener_Tipo_Empleado){
-        
-        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10, 10.5);
-        
-        int tipoEmpleadoEsperado = 1;
-        int tipoEmpleadoActual = empleadoEjemplo->obtenerTipoEmpleado();
-
-        EXPECT_EQ(tipoEmpleadoEsperado, tipoEmpleadoActual);
+        EXPECT_EQ(idEsperada, idActual);
         delete empleadoEjemplo;
     }
 
     TEST(TipoEmpleado_Tests, Test_Obtener_ID_Supervisor){
+
+        ostringstream streamSalidaEmpleado;
+        streamSalidaEmpleado << "199 Remy Bryson remy_bryson@biz.com 1 95";
+        string empleado = streamSalidaEmpleado.str();
+
+        istringstream streamEntradaEmpleado(empleado);
         
-        ProfesionalPorHoras *ejemploSupervisor = new ProfesionalPorHoras("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10, 10.5);
-        ProfesionalPorHoras *ejemploSupervisado = new ProfesionalPorHoras("Clarissa", "Parker", "clarissa_parker@biz.com", 2, 1, 1, 12, 12.3);
+        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras();
+        streamEntradaEmpleado >> empleadoEjemplo;
+        
+        int idEsperada = 95;
+        int idActual = empleadoEjemplo->obtenerIdSupervisor();
 
-        int idSupervisorEsperado = 1;
-        int idSupervisorActual = ejemploSupervisado->obtenerIdSupervisor();
-
-        EXPECT_EQ(idSupervisorEsperado, idSupervisorActual);
-
-        delete ejemploSupervisado;
-        delete ejemploSupervisor;
+        EXPECT_EQ(idEsperada, idActual);
+        delete empleadoEjemplo;
     }
 
     TEST(TipoEmpleado_Tests, Test_Obtener_Nombre_Empleado){
+
+        ostringstream streamSalidaEmpleado;
+        streamSalidaEmpleado << "15 Stella Rossi stella_rossi@biz.com 1 4";
+        string empleado = streamSalidaEmpleado.str();
+
+        istringstream streamEntradaEmpleado(empleado);
         
-        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10, 10.5);
+        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras();
+        streamEntradaEmpleado >> empleadoEjemplo;
         
-        string nombreEsperado = "Tyler Denis";
+        string nombreEsperado = "Stella Rossi";
         string nombreActual = empleadoEjemplo->obtenerNombreCompleto();
 
         EXPECT_EQ(nombreEsperado, nombreActual);
         delete empleadoEjemplo;
     }
 
-    TEST(TipoEmpleado_Tests, Test_Obtener_Email){
+    TEST(TipoEmpleado_Tests, Test_Obtener_Asignar_Nombre_Supervisor){
+        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras();
+        empleadoEjemplo->asignarNombreSupervisor("Denis Tyler");
         
-        ProfesionalPorHoras *empleadoEjemplo = new ProfesionalPorHoras("Tyler", "Denis", "denis_tyler@biz.com", 1, 1, 1, 10, 10.5);
-        
-        string emailEsperado = "denis_tyler@biz.com";
-        string emailActual = empleadoEjemplo->obtenerEmail();
+        string nombreEsperado = "Denis Tyler";
+        string nombreActual = empleadoEjemplo->obtenerNombreSupervisor();
 
-        EXPECT_EQ(emailEsperado, emailActual);
+        EXPECT_EQ(nombreEsperado, nombreActual);
         delete empleadoEjemplo;
     }
-
 }
