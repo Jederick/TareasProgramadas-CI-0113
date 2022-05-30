@@ -8,9 +8,6 @@ LectorArchivos::LectorArchivos(istream *_archivoPersonas, istream *_archivosNomi
 
 void LectorArchivos::llenarPlanilla(Planilla *planilla){
 
-    EmpleadoNomina *empleadoNominaAuxiliar;
-    ProfesionalPorHoras *profesionalPorHorasAuxiliar;
-
     int tipoEmpleado = 0;
     string linea = "";
     string relleno = "";
@@ -36,6 +33,16 @@ void LectorArchivos::llenarPlanilla(Planilla *planilla){
 
         //si el empleado es profesional por horas
         }else if(tipoEmpleado == 2){
+            string lineaHorasTrabajadas = "";
+
+            getline(*(this->archivoHorasTrabajadas), lineaHorasTrabajadas);
+            lineaHorasTrabajadas = linea + " " + lineaHorasTrabajadas;
+            istringstream streamLineaNomina(lineaHorasTrabajadas);
+
+            ProfesionalPorHoras *nuevoProfesionalPorHoras = new ProfesionalPorHoras();
+            streamLineaNomina >> nuevoProfesionalPorHoras;
+
+            planilla->agregarEmpleado(nuevoProfesionalPorHoras);
 
 
         }else{

@@ -4,8 +4,8 @@
 
 namespace{
 
-
     TEST(Planilla_Tests, Test_Agregar_Obtener_Empleado_A_Planilla){
+
 
         // Arrange - configurar el escenario
         ostringstream streamSalidaEmpleado;
@@ -29,8 +29,6 @@ namespace{
 
         //delete empleadoEjemplo;
         //delete planillaEmpleados;
-    }
-
-    
+    }   
     
 }
