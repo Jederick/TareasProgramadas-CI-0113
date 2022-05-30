@@ -9,13 +9,14 @@ using namespace std;
 class TipoEmpleado{
 
     protected:
+    int pagoNeto = 0;
     int idEmpleado;
     int tipoEmpleado;
     int idSupervisor;
     string nombre;
     string apellido;
     string email;
-
+    string nombreSupervisor;
     vector<TipoEmpleado*> supervisados;
     
 
@@ -27,10 +28,16 @@ class TipoEmpleado{
     int obtenerIdSupervisor();
 
     string obtenerNombreCompleto();
+    string obtenerNombreSupervisor();
     string obtenerEmail();
 
-    vector<TipoEmpleado *> obtenerSupervisados();
+    void asignarNombreSupervisor(string nombreSupervisor);
     void insertarSupervisado(TipoEmpleado *nuevoSupervisado);
+
+    vector<TipoEmpleado *> obtenerSupervisados();
+    
+
+    friend ostream& operator << (ostream &entrada, TipoEmpleado *empleado);
 
 };
 

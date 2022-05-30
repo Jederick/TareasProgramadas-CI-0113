@@ -15,15 +15,7 @@ ProfesionalPorHoras::ProfesionalPorHoras(string _nombre, string _apellido, strin
     }
 }*/
 
-ostream& operator << (ostream &salida, const ProfesionalPorHoras *empleado){
-    salida << empleado->idEmpleado << "," << empleado->nombre << "," << empleado->apellido << "," << empleado->email << "," << empleado->tipoEmpleado << "," << empleado->idSupervisor;
-
-    return salida;
-}
-
 istream& operator >> (istream &entrada, ProfesionalPorHoras *empleado){
-    
-    
-    entrada >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor;
+     entrada >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor;
     return entrada;
 }

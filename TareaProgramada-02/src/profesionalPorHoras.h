@@ -14,9 +14,8 @@ class ProfesionalPorHoras : public TipoEmpleado{
 
     //~ProfesionalPorHoras();
 
-
     friend istream& operator >> (istream &entrada, ProfesionalPorHoras *empleado);
-    friend ostream& operator << (ostream &salida, const ProfesionalPorHoras *empleado);
+    
 
 
   

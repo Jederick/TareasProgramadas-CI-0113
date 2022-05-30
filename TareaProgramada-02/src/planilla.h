@@ -3,6 +3,7 @@
 
 #include <map>
 #include <istream>
+#include <sstream>
 
 #include "tipoEmpleado.h"
 
@@ -14,20 +15,22 @@ class Planilla{
     private:    
         map<int, TipoEmpleado*> indiceEmpleados;
         TipoEmpleado *empleadoRaiz;
-        
-        istream *archivoPersonas;
-        istream *archivoNomina;
-        istream *archivoHorasTrabajadas;
+
 
     public:
         Planilla(TipoEmpleado *empleadoRaiz);
-        Planilla(istream *archivoPersonas, istream *archivoNomina, istream *archivoHorasTrabajadas);
+        Planilla();
 
         ~Planilla();
 
         void agregarEmpleado(TipoEmpleado *nuevoEmpleado);
 
         TipoEmpleado* obtenerEmpleado(int idEmpleado);
+        
+        friend istream& operator >> (istream &entrada, Planilla *Planilla);
+        friend ostream& operator << (ostream &salida, const Planilla *planilla);
+
+
 
         
 };

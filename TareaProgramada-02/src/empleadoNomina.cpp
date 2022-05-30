@@ -8,6 +8,10 @@ EmpleadoNomina::EmpleadoNomina(string _nombre, string _apellido, string _email, 
     this->tipoEmpleado = _tipoEmpleado;
     this->idSupervisor = _idSupervisor;
     this->pagoBruto = _pagoBruto;
+    
+}
+
+EmpleadoNomina::EmpleadoNomina(){
 }
 
 /*EmpleadoNomina::~EmpleadoNomina(){
@@ -16,15 +20,11 @@ EmpleadoNomina::EmpleadoNomina(string _nombre, string _apellido, string _email, 
     }
 }*/
 
-ostream& operator << (ostream &salida, const EmpleadoNomina *empleado){
-    salida << empleado->idEmpleado << "," << empleado->nombre << "," << empleado->apellido << "," << empleado->email << "," << empleado->tipoEmpleado << "," << empleado->idSupervisor;
-
-    return salida;
-}
-
 istream& operator >> (istream &entrada, EmpleadoNomina *empleado){
-    
-    
-    entrada >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor;
+    int relleno = 0;
+    entrada >> empleado->idEmpleado >> empleado->nombre >> empleado->apellido >> empleado->email >> empleado->tipoEmpleado >> empleado->idSupervisor >> relleno >> empleado->pagoBruto;
+    if(relleno != empleado->idEmpleado){
+        cerr << "No se ha asignado el monto bruto correcto al empleado correspondiente";
+    }
     return entrada;
 }
