@@ -24,6 +24,10 @@ void TipoEmpleado::asignarNombreSupervisor(string _nombreSupervisor){
     this->nombreSupervisor = _nombreSupervisor;
 }
 
+float TipoEmpleado::obtenerPagoNeto(){
+    return this->pagoNeto;
+}
+
 vector<TipoEmpleado *> TipoEmpleado::obtenerSupervisados(){
     return this->supervisados;
 }

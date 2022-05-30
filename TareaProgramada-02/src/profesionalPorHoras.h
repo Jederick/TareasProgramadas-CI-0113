@@ -13,6 +13,7 @@ class ProfesionalPorHoras : public TipoEmpleado{
     ProfesionalPorHoras();
     //~ProfesionalPorHoras();
 
+    virtual void calculoPago();
     friend istream& operator >> (istream &entrada, ProfesionalPorHoras *empleado);
     
 

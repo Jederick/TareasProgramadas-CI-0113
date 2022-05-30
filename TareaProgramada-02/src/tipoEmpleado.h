@@ -9,7 +9,7 @@ using namespace std;
 class TipoEmpleado{
 
     protected:
-    int pagoNeto = 0;
+    float pagoNeto;
     int idEmpleado;
     int tipoEmpleado;
     int idSupervisor;
@@ -21,7 +21,7 @@ class TipoEmpleado{
     
 
     public:
-    //virtual int calculoPago();
+    virtual void calculoPago() = 0;
 
     int obtenerIdEmpleado();
     int obtenerIdSupervisor();
@@ -32,8 +32,9 @@ class TipoEmpleado{
     void asignarNombreSupervisor(string nombreSupervisor);
     void insertarSupervisado(TipoEmpleado *nuevoSupervisado);
 
+    float obtenerPagoNeto();
+
     vector<TipoEmpleado *> obtenerSupervisados();
-    
 
     friend ostream& operator << (ostream &entrada, TipoEmpleado *empleado);
 

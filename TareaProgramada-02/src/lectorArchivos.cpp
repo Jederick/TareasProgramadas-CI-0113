@@ -50,5 +50,5 @@ void LectorArchivos::llenarPlanilla(Planilla *planilla){
             return;
         }
     }
-
 }
+

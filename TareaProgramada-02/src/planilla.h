@@ -16,7 +16,6 @@ class Planilla{
         map<int, TipoEmpleado*> indiceEmpleados;
         TipoEmpleado *empleadoRaiz;
 
-
     public:
         Planilla();
         ~Planilla();
@@ -27,10 +26,6 @@ class Planilla{
         
         friend istream& operator >> (istream &entrada, Planilla *Planilla);
         friend ostream& operator << (ostream &salida, const Planilla *planilla);
-
-
-
-        
 };
 
 #endif

@@ -5,12 +5,14 @@ Planilla::Planilla(){
 
 void Planilla::agregarEmpleado(TipoEmpleado *_nuevoEmpleado){
     if(this->empleadoRaiz == nullptr){
+        _nuevoEmpleado->calculoPago();
         this->empleadoRaiz = _nuevoEmpleado;
         this->empleadoRaiz->asignarNombreSupervisor(_nuevoEmpleado->obtenerNombreCompleto());
     }else{
 
         TipoEmpleado *empleadoSupervisor = this->indiceEmpleados.at(_nuevoEmpleado->obtenerIdSupervisor());
         _nuevoEmpleado->asignarNombreSupervisor(empleadoSupervisor->obtenerNombreCompleto() );
+        _nuevoEmpleado->calculoPago();
         empleadoSupervisor->insertarSupervisado(_nuevoEmpleado);
     }
     this->indiceEmpleados.insert(pair<int, TipoEmpleado*>(_nuevoEmpleado->obtenerIdEmpleado(), _nuevoEmpleado) );

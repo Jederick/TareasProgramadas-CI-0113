@@ -26,12 +26,17 @@ int main(){
     if(!archivoHorasTrabajadas.is_open() ){
         cerr << "No se pudo abrir el archivo nomina.txt" << endl;
     }
+
+    ofstream archivoReporte("reporte.csv", ofstream::out);
+    if(!archivoReporte.is_open() ){
+        cerr << "No se pudo crear el archivo reporte.csv";
+    }
     
     Planilla *planilla = new Planilla();
     LectorArchivos *lectorArchivos = new LectorArchivos(&archivoPersonas, &archivoNomina, &archivoHorasTrabajadas);
     
     lectorArchivos->llenarPlanilla(planilla);
-    cout << planilla;
+    archivoReporte << planilla;
 
     return 0;
 }
