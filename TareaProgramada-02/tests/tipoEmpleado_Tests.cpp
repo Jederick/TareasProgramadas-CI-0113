@@ -79,6 +79,25 @@ namespace{
         delete empleadoEjemplo;
     }
 
+    TEST(TipoEmpleado_Tests, Test_Obtener_Impuesto_Retencion){
+
+        ostringstream streamSalidaEmpleado;
+        streamSalidaEmpleado << "15 Stella Rossi stella_rossi@biz.com 1 4 15 4523.48";
+        string lineaEmpleado = streamSalidaEmpleado.str();
+
+        istringstream streamEntradaEmpleado(lineaEmpleado);
+        
+        EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina();
+        streamEntradaEmpleado >> empleadoEjemplo;
+
+        empleadoEjemplo->calculoPago();
+        float impuestoEsperado = 316.6436;
+        float impuestoActual = empleadoEjemplo->obtenerImpuestoRetencion();
+
+        EXPECT_FLOAT_EQ(impuestoEsperado, impuestoActual);
+        delete empleadoEjemplo;
+    }
+
     TEST(TipoEmpleado_Tests, Test_Obtener_Asignar_Nombre_Supervisor){
         EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina();
         empleadoEjemplo->asignarNombreSupervisor("Denis Tyler");
