@@ -24,7 +24,7 @@ class Planilla{
 
         float obtenerTotalPagosNetos();
         void obtenerPagosBrutosTotales();
-        void obtenerImpuestosTotales();
+        float obtenerImpuestosTotales();
 
         TipoEmpleado* obtenerEmpleado(int idEmpleado);
         

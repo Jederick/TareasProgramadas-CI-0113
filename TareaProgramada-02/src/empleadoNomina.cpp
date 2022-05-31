@@ -15,7 +15,7 @@ EmpleadoNomina::EmpleadoNomina(){
 
 EmpleadoNomina::~EmpleadoNomina(){
     for(TipoEmpleado *supervisado : this->supervisados){
-            delete supervisado;
+        delete supervisado;
     }
 }
 

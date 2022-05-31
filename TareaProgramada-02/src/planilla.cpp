@@ -40,8 +40,16 @@ float Planilla::obtenerTotalPagosNetos(){
     return totalPagosNetos;
 }
 
+float Planilla::obtenerImpuestosTotales(){
+    float impuestosTotales = 0;
+    for(auto par = begin(this->indiceEmpleados); par != end(this->indiceEmpleados); par++){
+        impuestosTotales += par->second->obtenerImpuestoRetencion();
+    }
+    return impuestosTotales;
+}
+
 void Planilla::obtenerPagosBrutosTotales(){}
-void Planilla::obtenerImpuestosTotales(){}
+
 
 ostream& operator << (ostream &salida, const Planilla *planilla){
     for(auto par = begin(planilla->indiceEmpleados); par != end(planilla->indiceEmpleados); par++){

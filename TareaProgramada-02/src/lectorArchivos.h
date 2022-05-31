@@ -8,6 +8,8 @@
 #include "empleadoNomina.h"
 #include "planilla.h"
 
+using namespace std;
+
 class LectorArchivos{
 
     private:
@@ -18,6 +20,8 @@ class LectorArchivos{
     public:
         LectorArchivos(istream *archivoPersonas, istream *archivoNomina, istream *archivoHorasTrabajadas);
         ~LectorArchivos();
+
+        string imprimirResumen(Planilla *planilla);
         void llenarPlanilla(Planilla *planilla);
 };
 

@@ -9,6 +9,7 @@ using namespace std;
 class TipoEmpleado{
 
     protected:
+    float impuestoRetencion;
     float pagoNeto;
     int idEmpleado;
     int tipoEmpleado;
@@ -33,6 +34,7 @@ class TipoEmpleado{
     void insertarSupervisado(TipoEmpleado *nuevoSupervisado);
 
     float obtenerPagoNeto();
+    float obtenerImpuestoRetencion();
 
     vector<TipoEmpleado *> obtenerSupervisados();
 

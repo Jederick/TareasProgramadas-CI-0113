@@ -52,4 +52,26 @@ namespace{
         EXPECT_FLOAT_EQ(totalPagosNetosEsperado, totalPagosNetosActual);
         delete planilla;
     }
+
+    TEST(Planilla_Tests, Test_Obtener_Total_Impuestos){
+
+        // Arrange - configurar el escenario
+        EmpleadoNomina *empleado1 = new EmpleadoNomina(1, "Denis", "Tyler", "denis_tyler@biz.com", 1, 1, 4600.98);
+        EmpleadoNomina *empleado2 = new EmpleadoNomina(2, "Clarissa", "Parker", "clarissa_parker@biz.com", 1, 1, 3097.50);
+        EmpleadoNomina *empleado3 = new EmpleadoNomina(3, "Harmony", "Rycroft", "harmony_rycroft@biz.com", 1, 1, 4586.42);
+        EmpleadoNomina *empleado4 = new EmpleadoNomina(4, "Alan", "Patel", "alan_patel@biz.com", 1, 1, 4606.19);
+        Planilla *planilla = new Planilla(empleado1);
+        planilla->agregarEmpleado(empleado2);
+        planilla->agregarEmpleado(empleado3);
+        planilla->agregarEmpleado(empleado4);
+
+        // Act - ejecute la operación
+
+        float totalImpuestosEsperado = 1182.3762;
+        float totalImpuestosActual = planilla->obtenerImpuestosTotales();
+        
+
+        EXPECT_FLOAT_EQ(totalImpuestosEsperado, totalImpuestosActual);
+        delete planilla;
+    }
 }

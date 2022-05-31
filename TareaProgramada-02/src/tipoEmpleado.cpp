@@ -28,6 +28,10 @@ float TipoEmpleado::obtenerPagoNeto(){
     return this->pagoNeto;
 }
 
+float TipoEmpleado::obtenerImpuestoRetencion(){
+    return this->impuestoRetencion;
+}
+
 vector<TipoEmpleado *> TipoEmpleado::obtenerSupervisados(){
     return this->supervisados;
 }
