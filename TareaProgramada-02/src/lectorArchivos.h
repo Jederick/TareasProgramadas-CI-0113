@@ -17,8 +17,8 @@ class LectorArchivos{
 
     public:
         LectorArchivos(istream *archivoPersonas, istream *archivoNomina, istream *archivoHorasTrabajadas);
-
-        void llenarPlanilla(Planilla* planilla);
+        ~LectorArchivos();
+        void llenarPlanilla(Planilla *planilla);
 };
 
 #endif

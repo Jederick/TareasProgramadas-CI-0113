@@ -54,7 +54,9 @@ namespace{
         EXPECT_EQ(nombreSupervisorEsperado3, nombreSupervisorActual3);
         EXPECT_EQ(idSupervisorEsperada4, idSupervisorActual4);
         
-    
+        delete lectorArchivos;
+        delete planilla;
     }
+    
 
 }

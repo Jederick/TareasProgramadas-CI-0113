@@ -7,7 +7,6 @@
 
 #include "tipoEmpleado.h"
 
-
 using namespace std;
 
 class Planilla{
@@ -17,10 +16,15 @@ class Planilla{
         TipoEmpleado *empleadoRaiz;
 
     public:
+        Planilla(TipoEmpleado* empleadoRaiz);
         Planilla();
         ~Planilla();
 
         void agregarEmpleado(TipoEmpleado *nuevoEmpleado);
+
+        float obtenerTotalPagosNetos();
+        void obtenerPagosBrutosTotales();
+        void obtenerImpuestosTotales();
 
         TipoEmpleado* obtenerEmpleado(int idEmpleado);
         

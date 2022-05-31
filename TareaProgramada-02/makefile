@@ -9,8 +9,6 @@ all:
 	g++ $(FLAGS) src/tipoEmpleado.cpp -o bin/tipoEmpleado.o
 	g++ $(FLAGS) src/main.cpp -o bin/main.o
 	g++ -o bin/final bin/main.o bin/lectorArchivos.o bin/empleadoNomina.o bin/planilla.o bin/profesionalPorHoras.o bin/tipoEmpleado.o
-
-
 make test:
 	mkdir -p bin
 	g++ $(FLAGS) src/lectorArchivos.cpp -o bin/lectorArchivos.o

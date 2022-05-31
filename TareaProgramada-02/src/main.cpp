@@ -38,5 +38,11 @@ int main(){
     lectorArchivos->llenarPlanilla(planilla);
     archivoReporte << planilla;
 
+    float asd = planilla->obtenerTotalPagosNetos();
+    cout << asd << endl;
+
+    delete planilla;
+    delete lectorArchivos;
+    
     return 0;
 }

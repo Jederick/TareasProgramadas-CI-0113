@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "../src/empleadoNomina.h"
-#include "../src/planilla.h"
-
+#include "./../src/planilla.h"
+#include "./../src/empleadoNomina.h"
+#include "./../src/profesionalPorHoras.h"
 namespace{
 
     TEST(Planilla_Tests, Test_Agregar_Obtener_Empleado_A_Planilla){
@@ -27,8 +27,29 @@ namespace{
         // Assert - valide los resultados
         EXPECT_EQ(empleadoEsperado, empleadoActual);
 
-        //delete empleadoEjemplo;
-        //delete planillaEmpleados;
-    }   
-    
+        delete planilla;
+    }
+
+    TEST(Planilla_Tests, Test_Obtener_Total_Pagos_Netos){
+
+        // Arrange - configurar el escenario
+        EmpleadoNomina *empleado1 = new EmpleadoNomina(1, "Denis", "Tyler", "denis_tyler@biz.com", 1, 1, 4600.98);
+        EmpleadoNomina *empleado2 = new EmpleadoNomina(2, "Clarissa", "Parker", "clarissa_parker@biz.com", 1, 1, 3097.50);
+
+        ProfesionalPorHoras *empleado3 = new ProfesionalPorHoras(451, "Ryan", "Webster", "Ryan_Webster6612@hourpy.biz", 2, 2, 42.26, 55);
+        ProfesionalPorHoras *empleado4 = new ProfesionalPorHoras(452, "Emmanuelle", "Tennant", "Emmanuelle_Tennant8391@deavo.com", 2, 2, 34.84, 43);
+        Planilla *planilla = new Planilla(empleado1);
+        planilla->agregarEmpleado(empleado2);
+        planilla->agregarEmpleado(empleado3);
+        planilla->agregarEmpleado(empleado4);
+
+        // Act - ejecute la operación
+
+        float totalPagosNetosEsperado = 10982.01;
+        float totalPagosNetosActual = planilla->obtenerTotalPagosNetos();
+        
+
+        EXPECT_FLOAT_EQ(totalPagosNetosEsperado, totalPagosNetosActual);
+        delete planilla;
+    }
 }

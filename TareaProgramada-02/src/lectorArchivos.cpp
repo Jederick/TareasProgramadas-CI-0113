@@ -6,6 +6,9 @@ LectorArchivos::LectorArchivos(istream *_archivoPersonas, istream *_archivosNomi
     this->archivoHorasTrabajadas = _archivosHorasTrabajadas;
 }
 
+LectorArchivos::~LectorArchivos(){
+}
+
 void LectorArchivos::llenarPlanilla(Planilla *planilla){
 
     int tipoEmpleado = 0;
@@ -50,5 +53,6 @@ void LectorArchivos::llenarPlanilla(Planilla *planilla){
             return;
         }
     }
+
 }
 
