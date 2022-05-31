@@ -56,7 +56,7 @@ void LectorArchivos::llenarPlanilla(Planilla *planilla){
 
 }
 
-string LectorArchivos::imprimirResumen(Planilla *planilla){
+string LectorArchivos::obtenerResumen(Planilla *planilla){
     float subtotal = planilla->obtenerTotalPagosNetos();
     float impuestosTotales = planilla->obtenerImpuestosTotales();
     float total = subtotal + impuestosTotales;

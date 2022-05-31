@@ -21,7 +21,7 @@ class LectorArchivos{
         LectorArchivos(istream *archivoPersonas, istream *archivoNomina, istream *archivoHorasTrabajadas);
         ~LectorArchivos();
 
-        string imprimirResumen(Planilla *planilla);
+        string obtenerResumen(Planilla *planilla);
         void llenarPlanilla(Planilla *planilla);
 };
 

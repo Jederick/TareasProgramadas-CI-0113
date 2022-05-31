@@ -37,7 +37,7 @@ int main(){
     
     lectorArchivos->llenarPlanilla(planilla);
     archivoReporte << planilla;
-    archivoReporte << lectorArchivos->imprimirResumen(planilla);
+    archivoReporte << lectorArchivos->obtenerResumen(planilla);
     
     delete planilla;
     delete lectorArchivos;
