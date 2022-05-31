@@ -145,5 +145,17 @@ namespace{
         delete empleadoEjemplo;
     }
 
+    TEST(TipoEmpleado_Tests, Test_Insertar_Supervisado){
+        
+        EmpleadoNomina *empleado1 = new EmpleadoNomina(1, "Denis", "Tyler", "denis_tyler@biz.com", 1, 1, 4600.98);
+        EmpleadoNomina *empleado2 = new EmpleadoNomina(2, "Clarissa", "Parker", "clarissa_parker@biz.com", 1, 1, 3097.50);
 
+        
+        empleado1->insertarSupervisado(empleado2);
+        string nombreSupervisadoEsperado = "Clarissa Parker";
+        string nombreSupervisadoActual = empleado2->obtenerNombreCompleto();
+
+        EXPECT_EQ(nombreSupervisadoEsperado, nombreSupervisadoActual);
+
+    }
 }
