@@ -48,9 +48,6 @@ float Planilla::obtenerImpuestosTotales(){
     return impuestosTotales;
 }
 
-void Planilla::obtenerPagosBrutosTotales(){}
-
-
 ostream& operator << (ostream &salida, const Planilla *planilla){
     for(auto par = begin(planilla->indiceEmpleados); par != end(planilla->indiceEmpleados); par++){
         salida << (par->second) << endl;

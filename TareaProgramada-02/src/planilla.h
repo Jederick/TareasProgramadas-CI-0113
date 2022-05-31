@@ -23,7 +23,6 @@ class Planilla{
         void agregarEmpleado(TipoEmpleado *nuevoEmpleado);
 
         float obtenerTotalPagosNetos();
-        void obtenerPagosBrutosTotales();
         float obtenerImpuestosTotales();
 
         TipoEmpleado* obtenerEmpleado(int idEmpleado);

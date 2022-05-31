@@ -36,8 +36,6 @@ class TipoEmpleado{
     float obtenerPagoNeto();
     float obtenerImpuestoRetencion();
 
-    vector<TipoEmpleado *> obtenerSupervisados();
-
     friend ostream& operator << (ostream &entrada, TipoEmpleado *empleado);
 
 };

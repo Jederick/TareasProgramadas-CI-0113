@@ -57,9 +57,10 @@ void LectorArchivos::llenarPlanilla(Planilla *planilla){
 }
 
 string LectorArchivos::imprimirResumen(Planilla *planilla){
-    float pagosNetosTotales = planilla->obtenerTotalPagosNetos();
+    float subtotal = planilla->obtenerTotalPagosNetos();
     float impuestosTotales = planilla->obtenerImpuestosTotales();
+    float total = subtotal + impuestosTotales;
     
-    string resumen = "Subtotal: " + to_string(pagosNetosTotales) + ". Total impuestos a retener: " + to_string(impuestosTotales);
+    string resumen = "Subtotal: " + to_string(subtotal) + ". Total impuestos a retener: " + to_string(impuestosTotales) + ". Total: " + to_string(total);
     return resumen;
 }

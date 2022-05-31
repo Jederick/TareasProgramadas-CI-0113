@@ -32,10 +32,6 @@ float TipoEmpleado::obtenerImpuestoRetencion(){
     return this->impuestoRetencion;
 }
 
-vector<TipoEmpleado *> TipoEmpleado::obtenerSupervisados(){
-    return this->supervisados;
-}
-
 ostream& operator << (ostream &salida, TipoEmpleado *empleado){
     salida << empleado->idEmpleado << "," << empleado->nombre << " " << empleado->apellido << "," << empleado->nombreSupervisor << "," << empleado->pagoNeto;
     return salida;

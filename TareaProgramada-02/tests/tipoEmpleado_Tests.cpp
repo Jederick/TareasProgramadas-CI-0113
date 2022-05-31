@@ -60,6 +60,25 @@ namespace{
         delete empleadoEjemplo;
     }
 
+    TEST(TipoEmpleado_Tests, Test_Obtener_Pago_Neto){
+
+        ostringstream streamSalidaEmpleado;
+        streamSalidaEmpleado << "15 Stella Rossi stella_rossi@biz.com 1 4 15 4523.48";
+        string lineaEmpleado = streamSalidaEmpleado.str();
+
+        istringstream streamEntradaEmpleado(lineaEmpleado);
+        
+        EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina();
+        streamEntradaEmpleado >> empleadoEjemplo;
+
+        empleadoEjemplo->calculoPago();
+        float pagoNetoEsperado = 4206.8364;
+        float pagoNetoActual = empleadoEjemplo->obtenerPagoNeto();
+
+        EXPECT_FLOAT_EQ(pagoNetoEsperado, pagoNetoActual);
+        delete empleadoEjemplo;
+    }
+
     TEST(TipoEmpleado_Tests, Test_Obtener_Asignar_Nombre_Supervisor){
         EmpleadoNomina *empleadoEjemplo = new EmpleadoNomina();
         empleadoEjemplo->asignarNombreSupervisor("Denis Tyler");
@@ -106,5 +125,6 @@ namespace{
         EXPECT_FLOAT_EQ(pagoNetoEsperado, pagoNetoActual);
         delete empleadoEjemplo;
     }
+
 
 }
