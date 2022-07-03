@@ -22,13 +22,13 @@ Tienda::Tienda(string _nombre, string _direccionInternet, string _direccionFisic
     }else if(_telefono.size() > 8){
         throw ExcepcionTelefonoErroneo();
    
+    }else{
+        strcpy(this->nombre, _nombre.c_str() );
+        strcpy(this->direccionInternet, _direccionInternet.c_str() );
+        strcpy(this->direccionFisica, _direccionFisica.c_str() );
+        strcpy(this->telefono, _telefono.c_str() ); 
     }
     
-    strcpy(this->nombre, _nombre.c_str() );
-    strcpy(this->direccionInternet, _direccionInternet.c_str() );
-    strcpy(this->direccionFisica, _direccionFisica.c_str() );
-    strcpy(this->telefono, _telefono.c_str() ); 
-
 }
 
 Tienda::Tienda(){
