@@ -130,9 +130,6 @@ namespace{
         string salidaEsperada = "Tienda Papayaparaya\nId: 1. Nombre: aguacate. Existencias en la tienda: 50\nId: 2. Nombre: papaya. Existencias en la tienda: 95\n";
         string actualExportado = streamTiendaAExportar.str();
         string actualCargado = streamTiendaACargar.str();
-
-        cout << tiendaACargar;
-        cout << tiendaAExportar;
         
         delete tiendaACargar;
         delete tiendaAExportar;
