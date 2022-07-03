@@ -3,8 +3,12 @@
 #include <fstream>
 
 #include "../src/tienda.h"
-#include "../src/excepcionIdInexistente.h"
-#include "../src/excepcionLimiteChar.h"
+#include "../src/excepciones/excepcionIdInexistente.h"
+#include "../src/excepciones/excepcionDireccionFisicaErronea.h"
+#include "../src/excepciones/excepcionDireccionWebErronea.h"
+#include "../src/excepciones/excepcionIdInexistente.h"
+#include "../src/excepciones/excepcionNombreTiendaErroneo.h"
+#include "../src/excepciones/excepcionTelefonoErroneo.h"
 
 using namespace std;
 
@@ -80,13 +84,6 @@ namespace{
         }, ExcepcionIdInexistente);  
     }
 
-    TEST(Tienda_tests, excepcionLimiteChar_test){
-
-        EXPECT_THROW({
-            Tienda *tienda = new Tienda("Papayaparayaasdasdasdasdasdasd", "frutilla.com", "frente de pollolandia", "27951413");
-        }, ExcepcionLimiteChar);        
-    }
-
     TEST(Tienda_tests, exportarYCargarArchivoBinario_test){
 
         Tienda *tiendaAExportar = new Tienda("Papayaparaya", "frutilla.com", "frente de pollolandia", "27951413");
@@ -132,5 +129,33 @@ namespace{
         EXPECT_EQ(salidaEsperada, actualExportado);
         EXPECT_EQ(salidaEsperada, actualCargado);
         
+    }
+
+    TEST(Tienda_tests, excepcionNombreTiendaErroneo_test){
+
+        EXPECT_THROW({
+            Tienda *tienda = new Tienda("Papayaparayaasdasdasdasdasdasd", "frutilla.com", "frente de pollolandia", "27951413");
+        }, ExcepcionNombreTiendaErroneo);        
+    }
+
+    TEST(Tienda_tests, excepcionDireccionWebErronea_test){
+
+        EXPECT_THROW({
+            Tienda *tienda = new Tienda("Papayaparaya", "frutilla.comasdasdasdasdasdasdasdasdasd", "frente de pollolandia", "27951413");
+        }, ExcepcionDireccionWebErronea);        
+    }
+
+    TEST(Tienda_tests, excepcionDireccionFisica_test){
+
+        EXPECT_THROW({
+            Tienda *tienda = new Tienda("Papayaparay", "frutilla.com", "frente de pollolandiaasdasdasdasdasdasdasdasdasd", "27951413");
+        }, ExcepcionDireccionFisicaErronea);        
+    }
+
+    TEST(Tienda_tests, excepcionTelefonoErroneo_test){
+
+        EXPECT_THROW({
+            Tienda *tienda = new Tienda("Papayaparay", "frutilla.com", "frente de pollolandia", "279514138785");
+        }, ExcepcionTelefonoErroneo);        
     }
 }

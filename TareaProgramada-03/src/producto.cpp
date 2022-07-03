@@ -1,12 +1,12 @@
 #include "producto.h"
-#include "excepcionLimiteChar.h"
+#include "./excepciones/excepcionNombreProductoErroneo.h"
 #include <exception>
 
 Producto::Producto(int _id, string _nombre, int cantidad){
     this->id = _id;
     this->existencias = cantidad;
     if(_nombre.size() > 20){
-        throw ExcepcionLimiteChar();
+        throw ExcepcionNombreProductoErroneo();
     }
     strcpy(this->nombre, _nombre.c_str() );
     
@@ -20,7 +20,7 @@ void Producto::editar(int nuevaId, string nuevoNombre, int nuevasExistencias){
     this->id = nuevaId;
     this->existencias = nuevasExistencias;
     if(nuevoNombre.size() > 20){
-        throw ExcepcionLimiteChar();
+        throw ExcepcionNombreProductoErroneo();
     }else{
         strcpy(this->nombre, nuevoNombre.c_str() );
     }

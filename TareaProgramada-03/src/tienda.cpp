@@ -1,16 +1,33 @@
 #include "tienda.h"
-#include "excepcionLimiteChar.h"
-#include "excepcionIdInexistente.h"
+
+#include "./excepciones/excepcionIdInexistente.h"
+#include "./excepciones/excepcionIdInexistente.h"
+#include "./excepciones/excepcionDireccionFisicaErronea.h"
+#include "./excepciones/excepcionDireccionWebErronea.h"
+#include "./excepciones/excepcionIdInexistente.h"
+#include "./excepciones/excepcionNombreTiendaErroneo.h"
+#include "./excepciones/excepcionTelefonoErroneo.h"
 
 Tienda::Tienda(string _nombre, string _direccionInternet, string _direccionFisica, string _telefono){
-    if(_nombre.size() > 20 || _direccionInternet.size() > 24 || _direccionFisica.size() > 24 || _telefono.size() > 8){
-        throw ExcepcionLimiteChar();
-    }else{
-        strcpy(this->nombre, _nombre.c_str() );
-        strcpy(this->direccionInternet, _direccionInternet.c_str() );
-        strcpy(this->direccionFisica, _direccionFisica.c_str() );
-        strcpy(this->telefono, _telefono.c_str() ); 
+    if(_nombre.size() > 15){
+        throw ExcepcionNombreTiendaErroneo();
+
+    }else if(_direccionInternet.size() > 24){
+        throw ExcepcionDireccionWebErronea();
+
+    }else if(_direccionFisica.size() > 24){
+        throw ExcepcionDireccionFisicaErronea();
+
+    }else if(_telefono.size() > 8){
+        throw ExcepcionTelefonoErroneo();
+   
     }
+    
+    strcpy(this->nombre, _nombre.c_str() );
+    strcpy(this->direccionInternet, _direccionInternet.c_str() );
+    strcpy(this->direccionFisica, _direccionFisica.c_str() );
+    strcpy(this->telefono, _telefono.c_str() ); 
+
 }
 
 Tienda::Tienda(){

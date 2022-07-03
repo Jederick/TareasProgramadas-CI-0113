@@ -2,8 +2,7 @@
 #include <iostream>
 
 #include "../src/producto.h"
-#include "../src/excepcionLimiteChar.h"
-
+#include "../src/excepciones/excepcionNombreProductoErroneo.h"
 
 using namespace std;
 
@@ -23,11 +22,11 @@ namespace{
         EXPECT_EQ(idEsperada, idActual);
     }
 
-    TEST(Producto_tests, excepcionLimiteChar_test){
+    TEST(Producto_tests, excepcionNombreProductoErroneo_test){
 
         EXPECT_THROW({
             Producto *producto = new Producto(1,"asdasdasdasdasdasdasd", 25);
-        }, ExcepcionLimiteChar);        
+        }, ExcepcionNombreProductoErroneo);        
     }
 
     TEST(Producto_test, editarProducto_test){
