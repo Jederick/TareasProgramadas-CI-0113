@@ -20,12 +20,15 @@ namespace{
 
         EXPECT_EQ(nombreEsperado, nombreActual);
         EXPECT_EQ(idEsperada, idActual);
+
+        delete producto1;
     }
 
     TEST(Producto_tests, excepcionNombreProductoErroneo_test){
 
         EXPECT_THROW({
             Producto *producto = new Producto(1,"asdasdasdasdasdasdasd", 25);
+            delete producto;
         }, ExcepcionNombreProductoErroneo);        
     }
 
@@ -43,6 +46,8 @@ namespace{
 
         EXPECT_EQ(nombreEsperado, nombreActual);
         EXPECT_EQ(idEsperada, idActual);
+
+        delete producto1;
     }
 
 }

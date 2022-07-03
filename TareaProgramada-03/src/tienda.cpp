@@ -5,6 +5,7 @@
 #include "./excepciones/excepcionDireccionFisicaErronea.h"
 #include "./excepciones/excepcionDireccionWebErronea.h"
 #include "./excepciones/excepcionIdInexistente.h"
+#include "./excepciones/excepcionIdRepetida.h"
 #include "./excepciones/excepcionNombreTiendaErroneo.h"
 #include "./excepciones/excepcionTelefonoErroneo.h"
 
@@ -41,8 +42,17 @@ Tienda::~Tienda(){
 }
 
 void Tienda::agregarProducto(Producto *nuevoProducto){
-    this->inventario.push_back(nuevoProducto);
-    //this->actualizarExistencias();
+    bool repetida = false;
+    for(Producto *producto : this->inventario){
+        if(producto->obtenerId() == nuevoProducto->obtenerId() ){
+            throw ExcepcionIdRepetida();
+            repetida = true;
+        }
+    }
+    if(!repetida){
+        this->inventario.push_back(nuevoProducto);
+    }
+    
 }
 
 void Tienda::modificarProducto(int idProductoAModificar, int nuevaId, string nuevoNombre, int nuevasExistencias){

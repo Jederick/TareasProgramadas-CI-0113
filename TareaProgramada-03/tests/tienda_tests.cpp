@@ -9,6 +9,7 @@
 #include "../src/excepciones/excepcionIdInexistente.h"
 #include "../src/excepciones/excepcionNombreTiendaErroneo.h"
 #include "../src/excepciones/excepcionTelefonoErroneo.h"
+#include "../src/excepciones/excepcionIdRepetida.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ namespace{
         string salidaActual = streamSalida.str();
 
         EXPECT_EQ(salidaEsperada, salidaActual);
+        delete tienda;
 
     }
 
@@ -48,6 +50,8 @@ namespace{
         string salidaActual = streamSalida.str();
 
         EXPECT_EQ(salidaEsperada, salidaActual);
+        
+        delete tienda;
 
     }
 
@@ -67,6 +71,8 @@ namespace{
         string salidaActual = streamSalida.str();
 
         EXPECT_EQ(salidaEsperada, salidaActual);
+
+        delete tienda;
     }
 
     TEST(Tienda_tests, excepcionIdInexistente_test){
@@ -82,6 +88,8 @@ namespace{
         EXPECT_THROW({
             tienda->eliminarProducto(4);
         }, ExcepcionIdInexistente);  
+
+        delete tienda;
     }
 
     TEST(Tienda_tests, exportarYCargarArchivoBinario_test){
@@ -122,6 +130,9 @@ namespace{
         string salidaEsperada = "Tienda Papayaparaya\nId: 1. Nombre: aguacate. Existencias en la tienda: 50\nId: 2. Nombre: papaya. Existencias en la tienda: 95\n";
         string actualExportado = streamTiendaAExportar.str();
         string actualCargado = streamTiendaACargar.str();
+
+        cout << tiendaACargar;
+        cout << tiendaAExportar;
         
         delete tiendaACargar;
         delete tiendaAExportar;
@@ -135,6 +146,7 @@ namespace{
 
         EXPECT_THROW({
             Tienda *tienda = new Tienda("Papayaparayaasdasdasdasdasdasd", "frutilla.com", "frente de pollolandia", "27951413");
+            delete tienda;
         }, ExcepcionNombreTiendaErroneo);        
     }
 
@@ -142,6 +154,7 @@ namespace{
 
         EXPECT_THROW({
             Tienda *tienda = new Tienda("Papayaparaya", "frutilla.comasdasdasdasdasdasdasdasdasd", "frente de pollolandia", "27951413");
+            delete tienda;
         }, ExcepcionDireccionWebErronea);        
     }
 
@@ -149,6 +162,7 @@ namespace{
 
         EXPECT_THROW({
             Tienda *tienda = new Tienda("Papayaparay", "frutilla.com", "frente de pollolandiaasdasdasdasdasdasdasdasdasd", "27951413");
+            delete tienda;
         }, ExcepcionDireccionFisicaErronea);        
     }
 
@@ -156,6 +170,22 @@ namespace{
 
         EXPECT_THROW({
             Tienda *tienda = new Tienda("Papayaparay", "frutilla.com", "frente de pollolandia", "279514138785");
+            delete tienda;
         }, ExcepcionTelefonoErroneo);        
+    }
+
+    TEST(Tienda_tests, excepcionIdRepetida_test){
+
+        Tienda *tienda = new Tienda("Tecstore", "tecstore.com", "frente de maxipali", "88776655");
+        Producto *producto = new Producto(1, "audifonos", 50);
+        Producto *producto2 = new Producto(1, "USB", 70);
+
+        tienda->agregarProducto(producto);
+
+        EXPECT_THROW({
+            tienda->agregarProducto(producto2);
+        }, ExcepcionIdRepetida);        
+
+        delete tienda;
     }
 }
