@@ -17,6 +17,12 @@ Tienda::Tienda(){
     
 }
 
+Tienda::~Tienda(){
+    for(Producto *producto : this->inventario){
+        delete producto;
+    }
+}
+
 void Tienda::agregarProducto(Producto *nuevoProducto){
     this->inventario.push_back(nuevoProducto);
     //this->actualizarExistencias();

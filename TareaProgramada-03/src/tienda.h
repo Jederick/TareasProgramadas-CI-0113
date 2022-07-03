@@ -19,10 +19,10 @@ class Tienda{
 
     vector<Producto *> inventario;
 
-    //void actualizarExistencias();
     public:
     Tienda(string nombre, string direccionInternet, string direccionFisica, string telefono);
     Tienda();
+    ~Tienda();
     
     void agregarProducto(Producto *nuevoProducto);
     void modificarProducto(int idAModificar, int nuevaId, string nuevoNombre, int nuevasExistencias);

@@ -115,9 +115,6 @@ namespace{
         tiendaACargar->cargarDesdeStreamBinario(&archivoEntrada);
         archivoEntrada.close();
 
-
-        //DELETESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS TIENDASSS
-
         //Probar resultados
         ostringstream streamTiendaAExportar;
         streamTiendaAExportar << tiendaAExportar;
@@ -129,7 +126,8 @@ namespace{
         string actualExportado = streamTiendaAExportar.str();
         string actualCargado = streamTiendaACargar.str();
         
-
+        delete tiendaACargar;
+        delete tiendaAExportar;
         
         EXPECT_EQ(salidaEsperada, actualExportado);
         EXPECT_EQ(salidaEsperada, actualCargado);
