@@ -8,6 +8,7 @@
 #include "../src/excepciones/excepcionDireccionWebErronea.h"
 #include "../src/excepciones/excepcionIdInexistente.h"
 #include "../src/excepciones/excepcionNombreTiendaErroneo.h"
+#include "../src/excepciones/excepcionNombreProductoRepetido.h"
 #include "../src/excepciones/excepcionTelefonoErroneo.h"
 #include "../src/excepciones/excepcionIdRepetida.h"
 
@@ -145,6 +146,7 @@ namespace{
             Tienda *tienda = new Tienda("Papayaparayaasdasdasdasdasdasd", "frutilla.com", "frente de pollolandia", "27951413");
             delete tienda;
         }, ExcepcionNombreTiendaErroneo);        
+        
     }
 
     TEST(Tienda_tests, excepcionDireccionWebErronea_test){
@@ -171,17 +173,43 @@ namespace{
         }, ExcepcionTelefonoErroneo);        
     }
 
+    TEST(Tienda_tests, excepcionNombreProductoRepetido_test){
+
+        Tienda *tienda = new Tienda("Tecstore", "tecstore.com", "frente de maxipali", "88776655");
+        Producto *producto = new Producto(1, "audifonos", 50);
+        Producto *producto2 = new Producto(2, "USB", 70);
+        Producto *producto3 = new Producto(3, "audifonos", 20);
+        tienda->agregarProducto(producto);
+        tienda->agregarProducto(producto2);
+
+        EXPECT_THROW({
+            tienda->agregarProducto(producto3);
+        }, ExcepcionNombreProductoRepetido);
+
+        EXPECT_THROW({
+            tienda->modificarProducto(2, 2, "audifonos", 25);
+        }, ExcepcionNombreProductoRepetido);     
+
+        delete tienda;
+    }
+
     TEST(Tienda_tests, excepcionIdRepetida_test){
 
         Tienda *tienda = new Tienda("Tecstore", "tecstore.com", "frente de maxipali", "88776655");
         Producto *producto = new Producto(1, "audifonos", 50);
         Producto *producto2 = new Producto(1, "USB", 70);
+        Producto *producto3 = new Producto(2, "monitor", 20);
 
         tienda->agregarProducto(producto);
+        tienda->agregarProducto(producto3);
 
         EXPECT_THROW({
             tienda->agregarProducto(producto2);
-        }, ExcepcionIdRepetida);        
+        }, ExcepcionIdRepetida);
+
+        EXPECT_THROW({
+            tienda->modificarProducto(2, 1, "mouse", 25);
+        }, ExcepcionIdRepetida);     
 
         delete tienda;
     }
