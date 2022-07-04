@@ -32,7 +32,7 @@ namespace{
         }, ExcepcionNombreProductoErroneo);        
     }
 
-    TEST(Producto_test, editarProducto_test){
+    TEST(Producto_test, metodosObtener_editarProducto_test){
          Producto *producto1 = new Producto(1, "Tomates", 27);
          producto1->editar(7, "rtx3080", 36);
 

@@ -93,7 +93,7 @@ namespace{
         delete tienda;
     }
 
-    TEST(Tienda_tests, exportarYCargarArchivoBinario_test){
+    TEST(Tienda_tests, exportarYCargarStreamBinario_test){
 
         Tienda *tiendaAExportar = new Tienda("Papayaparaya", "frutilla.com", "frente de pollolandia", "27951413");
         Producto *producto1 = new Producto(1, "aguacate", 50);
