@@ -60,26 +60,27 @@ void Tienda::agregarProducto(Producto *nuevoProducto){
 
 void Tienda::modificarProducto(int idProductoAModificar, int nuevaId, string nuevoNombre, int nuevasExistencias){
     bool encontrado = false;
+
     for(Producto *producto : this->inventario){
         if(producto->obtenerId() == idProductoAModificar){
             encontrado = true;
+
             for(Producto* producto2 : this->inventario){
                 if(producto2->obtenerId() == nuevaId && producto2->obtenerNombre() != producto->obtenerNombre()){
                     throw ExcepcionIdRepetida();
-                }
 
+                }
                 if(producto2->obtenerNombre() == nuevoNombre && producto2->obtenerId() != producto->obtenerId() ){
                     throw ExcepcionNombreProductoRepetido();
+
                 }
-                
             }
             producto->editar(nuevaId, nuevoNombre, nuevasExistencias);
-
-        }
-        
+        }        
     }
     if(encontrado == false){
         throw ExcepcionIdInexistente();
+        
     }
 }
 
