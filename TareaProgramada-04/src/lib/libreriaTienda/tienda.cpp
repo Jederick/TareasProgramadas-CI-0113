@@ -2,16 +2,16 @@
 #include "excepciones.h"
 
 Tienda::Tienda(string _nombre, string _direccionInternet, string _direccionFisica, string _telefono){
-    if(_nombre.size() > 15){
+    if(_nombre.size() > 15 || _nombre.empty() ){
         throw ExcepcionNombreTiendaErroneo();
 
-    }else if(_direccionInternet.size() > 24){
+    }else if(_direccionInternet.size() > 24 || _direccionInternet.empty() ){
         throw ExcepcionDireccionWebErronea();
 
-    }else if(_direccionFisica.size() > 24){
+    }else if(_direccionFisica.size() > 24 || _direccionFisica.empty() ){
         throw ExcepcionDireccionFisicaErronea();
 
-    }else if(_telefono.size() > 8){
+    }else if(_telefono.size() > 8 || _telefono.empty() || !this->esNumero(_telefono) || _telefono.size() < 8){
         throw ExcepcionTelefonoErroneo();
 
     }else{
@@ -32,6 +32,15 @@ Tienda::~Tienda(){
         delete producto;
     }
 }
+
+bool Tienda::esNumero(const string& variable){
+    std::string::const_iterator iterador = variable.begin();
+    while(iterador != variable.end() && std::isdigit(*iterador) ){
+        iterador++;
+    }
+    return !variable.empty() && iterador == variable.end();
+}
+
 
 void Tienda::agregarProducto(Producto *nuevoProducto){
 
@@ -87,6 +96,7 @@ void Tienda::exportarEnStreamBinario(ostream *streamSalida){
 }
 
 void Tienda::cargarDesdeStreamBinario(istream *streamEntrada){
+    this->inventario.clear();
     streamEntrada->seekg(0, ios::end);
     int cantidadBytes = streamEntrada->tellg();
     int cantidadProductos = (cantidadBytes - 71) / sizeof(Producto);
@@ -106,20 +116,50 @@ void Tienda::cargarDesdeStreamBinario(istream *streamEntrada){
     }
 }
 
-void Tienda::eliminarProducto(int idAEliminar){
+void Tienda::eliminarProducto(Producto *_producto){
     int indice = 0;
     bool encontrada = false;
     for(Producto *producto : this->inventario){
-        if(producto->obtenerId() == idAEliminar){
+        if(producto == _producto){
             encontrada = true;
             delete producto;
             this->inventario.erase(inventario.begin() + indice);
         }
-        if(encontrada == false){
-            throw ExcepcionIdInexistente();
-        }
+
         indice++;
     }
+    if(encontrada == false){
+        throw ExcepcionIdInexistente();
+    }
+}
+
+string Tienda::obtenerNombre(){
+    return this->nombre;
+}
+
+string Tienda::obtenerDireccionFisica(){
+    return this->direccionFisica;
+}
+
+string Tienda::obtenerDireccionInternet(){
+    return this->direccionInternet;
+}
+
+string Tienda::obtenerTelefono(){
+    return this->telefono;
+}
+
+vector<Producto *> Tienda::obtenerInventario(){
+    return this->inventario;
+}
+
+Producto* Tienda::obtenerProducto(int idProducto){
+    for(Producto *producto : this->inventario){
+        if(producto->obtenerId() == idProducto){
+            return producto;
+        }
+    }
+    throw ExcepcionIdInexistente();
 }
 
 ostream& operator << (ostream &salida, const Tienda *tienda){

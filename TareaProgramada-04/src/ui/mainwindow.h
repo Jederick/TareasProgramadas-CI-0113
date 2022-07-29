@@ -31,7 +31,10 @@ private slots:
 
     void on_btnExportarTienda_clicked();
 
+
     void mostrarInformacionTienda(string nombreTienda, string paginaWeb, string direccionFisica, string telefono);
+
+    void mostrarProductosTienda(vector<Producto *> inventario);
 
 private:
     Ui::MainWindow *ui;

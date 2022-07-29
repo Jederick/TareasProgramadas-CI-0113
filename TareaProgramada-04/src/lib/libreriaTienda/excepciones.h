@@ -12,7 +12,7 @@ class ExcepcionDireccionFisicaErronea : public exception{
     ~ExcepcionDireccionFisicaErronea() = default;
 
     virtual const char* what() const noexcept{
-        return "La direccion fiísica de una tienda no puede superar los 24 caractéres";
+        return "La direccion física de una tienda no puede estar vacía";
     }
 
 };
@@ -24,7 +24,7 @@ class ExcepcionDireccionWebErronea : public exception{
     ~ExcepcionDireccionWebErronea() = default;
 
     virtual const char* what() const noexcept{
-        return "La direccion web de una tienda no puede superar los 24 caractéres";
+        return "La direccion web de una tienda no puede estar vacía";
     }
 };
 
@@ -57,7 +57,7 @@ class ExcepcionNombreProductoErroneo : public exception{
     ~ExcepcionNombreProductoErroneo() = default;
 
     virtual const char* what() const noexcept{
-        return "El nombre de un producto no puede superar los 20 caractéres";
+        return "El nombre de un producto no puede estar vacío";
     }
 };
 
@@ -68,7 +68,7 @@ class ExcepcionNombreProductoRepetido : public exception{
     ~ExcepcionNombreProductoRepetido() = default;
 
     virtual const char* what() const noexcept{
-        return "Ya existe un producto con este nombre, si desea agregar más existencias a un producto utilize el método .modificarProducto()";
+        return "Ya existe un producto con este nombre, si desea agregar más existencias a un producto utilize el botón 'Modificar Producto' ";
     }
 };
 
@@ -79,7 +79,7 @@ class ExcepcionNombreTiendaErroneo : public exception{
     ~ExcepcionNombreTiendaErroneo() = default;
 
     virtual const char* what() const noexcept{
-        return "El nombre de una tienda no puede superar los 15 caractéres";
+        return "El nombre de una tienda no puede estar vacío";
     }
 };
 
@@ -90,9 +90,31 @@ class ExcepcionTelefonoErroneo : public exception{
     ~ExcepcionTelefonoErroneo() = default;
 
     virtual const char* what() const noexcept{
-        return "El número de telefono de una tienda no puede superar los 8 números (caractéres)";
+        return "El número de telefono de una tienda deben ser 8 <b>números</b>";
     }
 
+};
+
+class ExcepcionExistenciasIncorrectas : public exception{
+
+    public:
+    ExcepcionExistenciasIncorrectas() noexcept = default;
+    ~ExcepcionExistenciasIncorrectas() = default;
+
+    virtual const char* what() const noexcept{
+        return "La cantidad de existencias de un producto debe de ser un <b>número</b> mayor a cero";
+    }
+};
+
+class ExcepcionIdIncorrecta : public exception{
+
+    public:
+    ExcepcionIdIncorrecta() noexcept = default;
+    ~ExcepcionIdIncorrecta() = default;
+
+    virtual const char* what() const noexcept{
+        return "La id de un producto debe de ser un <b>número</b> mayor a cero";
+    }
 };
 
 #endif

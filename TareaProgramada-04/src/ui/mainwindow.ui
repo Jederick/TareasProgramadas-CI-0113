@@ -121,7 +121,7 @@
      <string>Exportar tienda en archivo binario</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -144,7 +144,7 @@
         <bool>true</bool>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Página Web:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Página web:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -176,16 +176,6 @@
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionExportar_tienda_actual">
-   <property name="text">
-    <string>Exportar tienda actual en archivo binario(.dat)</string>
-   </property>
-  </action>
-  <action name="actionImportar_tienda">
-   <property name="text">
-    <string>Importar tienda desde archivo binario(.dat)</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

@@ -10,6 +10,12 @@
     <height>240</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>460</width>
+    <height>240</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
     <width>460</width>
@@ -63,37 +69,52 @@
       <property name="inputMask">
        <string/>
       </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lePaginaWeb"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lblPaginaWeb">
-      <property name="text">
-       <string>Página web: </string>
+      <property name="maxLength">
+       <number>15</number>
       </property>
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="lblDireccion">
-      <property name="text">
-       <string>Direccion física</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="leDireccionFisica"/>
-    </item>
-    <item row="3" column="0">
      <widget class="QLabel" name="lblTelefono">
       <property name="text">
        <string>Teléfono</string>
       </property>
      </widget>
     </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="leTelefono">
+      <property name="maxLength">
+       <number>8</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lblDireccion">
+      <property name="text">
+       <string>Direccion física</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="leDireccionFisica">
+      <property name="maxLength">
+       <number>24</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="lblPaginaWeb">
+      <property name="text">
+       <string>Página web: </string>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="1">
-     <widget class="QLineEdit" name="leTelefono"/>
+     <widget class="QLineEdit" name="lePaginaWeb">
+      <property name="maxLength">
+       <number>24</number>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

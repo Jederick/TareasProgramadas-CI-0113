@@ -16,12 +16,13 @@ public:
     ~FormProducto();
 
     void mostrarInformacion(QString id, QString nombre, int existencias);
-    std::string obtenerId();
+    int obtenerId();
     std::string obtenerNombre();
     int obtenerExistencias();
 
 private:
     Ui::FormProducto *ui;
+
 };
 
 #endif // FORMPRODUCTO_H

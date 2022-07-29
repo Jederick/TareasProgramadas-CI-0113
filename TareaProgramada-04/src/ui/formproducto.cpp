@@ -1,6 +1,7 @@
 #include "formproducto.h"
 #include "ui_formproducto.h"
 
+
 FormProducto::FormProducto(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::FormProducto)
@@ -21,8 +22,8 @@ void FormProducto::mostrarInformacion(QString id, QString nombre, int existencia
     this->ui->leExistencias->setText(QString::number(existencias));
 }
 
-std::string FormProducto::obtenerId(){
-    return this->ui->leId->text().toStdString();
+int FormProducto::obtenerId(){
+    return this->ui->leId->text().toInt();
 }
 
 std::string FormProducto::obtenerNombre(){

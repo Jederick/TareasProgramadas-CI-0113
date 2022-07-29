@@ -18,6 +18,7 @@ class Tienda{
     char telefono[8];
 
     vector<Producto *> inventario;
+    bool esNumero(const string& variable);
 
     public:
     Tienda(string nombre, string direccionInternet, string direccionFisica, string telefono);
@@ -26,10 +27,19 @@ class Tienda{
 
     void agregarProducto(Producto *nuevoProducto);
     void modificarProducto(int idAModificar, int nuevaId, string nuevoNombre, int nuevasExistencias);
-    void eliminarProducto(int idAEliminar);
+    void eliminarProducto(Producto *productoAEliminar);
 
     void exportarEnStreamBinario(ostream *streamSalida);
     void cargarDesdeStreamBinario(istream *streamEntrada);
+
+    Producto* obtenerProducto(int idProducto);
+
+    vector<Producto *> obtenerInventario();
+
+    string obtenerNombre();
+    string obtenerDireccionInternet();
+    string obtenerDireccionFisica();
+    string obtenerTelefono();
 
     /*void establecerNombre(string nombre);
     void establecerDireccionInternet(string direccionInternet);

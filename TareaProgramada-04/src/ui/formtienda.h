@@ -1,6 +1,8 @@
 #ifndef FORMTIENDA_H
 #define FORMTIENDA_H
 
+#include <QIntValidator>
+
 #include <QDialog>
 
 namespace Ui {
@@ -21,6 +23,7 @@ public:
 
 private:
     Ui::FormTienda *ui;
+
 
 };
 
